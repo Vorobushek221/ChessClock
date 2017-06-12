@@ -4,8 +4,27 @@
              xmlns:local="clr-namespace:ChessClock"
              x:Class="ChessClock.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.5*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="4.5*" />
+        </Grid.RowDefinitions>
+        <Button Text="Time1" 
+                Grid.Row="0" 
+                VerticalOptions="Fill">
+        </Button>
+        <Button 
+            Text="PAUSE" 
+            Grid.Row="1" 
+            VerticalOptions="Fill" 
+            HorizontalOptions="Center">
+        </Button>
+        <Button 
+            Text="Time2" 
+            Grid.Row="2" 
+            VerticalOptions="Fill">
+        </Button>
+    </Grid>
 
 </ContentPage>
