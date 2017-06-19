@@ -10,18 +10,24 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="4.5*" />
         </Grid.RowDefinitions>
-        <Button Text="Time1" 
-                Grid.Row="0" 
-                VerticalOptions="Fill">
+        <Button 
+            x:Name="TopButton"
+            Text="{Binding TopTime,StringFormat=\{0:h\\:mm\\:ss\},Mode=TwoWay}"
+            Command="{Binding PushTopTimeCommand}"
+            Grid.Row="0" 
+            VerticalOptions="Fill">
         </Button>
         <Button 
             Text="PAUSE" 
+            Command="{Binding PushPauseCommand}"
             Grid.Row="1" 
             VerticalOptions="Fill" 
             HorizontalOptions="Center">
         </Button>
         <Button 
-            Text="Time2" 
+            x:Name="BotButton"
+            Text="{Binding BotTime,StringFormat=\{0:h\\:mm\\:ss\},Mode=TwoWay}" 
+            Command="{Binding PushBotTimeCommand}"
             Grid.Row="2" 
             VerticalOptions="Fill">
         </Button>

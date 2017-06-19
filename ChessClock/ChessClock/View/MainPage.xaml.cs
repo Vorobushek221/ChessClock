@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ChessClock.ViewModel;
 
 namespace ChessClock
 {
@@ -12,6 +13,7 @@ namespace ChessClock
         public MainPage()
         {
             InitializeComponent();
+            this.BindingContext = new ClockViewModel();
         }
     }
 }
