@@ -3,15 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ChessClock"
              x:Class="ChessClock.MainPage">
+    <ContentPage.Resources>
+        
+        <ResourceDictionary>
+            <Style x:Key="TimeButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="FontSize" Value="45" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="TopTimeButtonStyle" TargetType="Button" BasedOn="{StaticResource TimeButtonStyle}">
+                <Setter Property="Rotation" Value="180" />
+            </Style>
+            <Style x:Key="BotTimeButtonStyle" TargetType="Button" BasedOn="{StaticResource TimeButtonStyle}">
+            </Style>
 
+            <Style x:Key="PauseButtonStyle" TargetType="Button">
+                
+            </Style>
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4.5*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="4.5*" />
         </Grid.RowDefinitions>
-        <Button 
+        <Button
             x:Name="TopButton"
+            Style="{StaticResource TopTimeButtonStyle}"
             Text="{Binding TopTime,StringFormat=\{0:h\\:mm\\:ss\},Mode=TwoWay}"
             Command="{Binding PushTopTimeCommand}"
             Grid.Row="0" 
@@ -26,6 +47,7 @@
         </Button>
         <Button 
             x:Name="BotButton"
+            Style="{StaticResource BotTimeButtonStyle}"
             Text="{Binding BotTime,StringFormat=\{0:h\\:mm\\:ss\},Mode=TwoWay}" 
             Command="{Binding PushBotTimeCommand}"
             Grid.Row="2" 
