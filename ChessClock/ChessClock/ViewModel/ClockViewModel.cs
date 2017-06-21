@@ -48,6 +48,14 @@ namespace ChessClock.ViewModel
             this.PushPauseCommand = new Command(PushPause);
         }
 
+        public bool GameIsPaused
+        {
+            get
+            {
+                return Clock.GameIsPaused;
+            }
+        }
+
         public void PushTopTimer()
         {
             Clock.EnableBotTimer();

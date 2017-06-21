@@ -27,7 +27,7 @@ namespace ChessClock.Model
             }
             set
             {
-                if(topTime != value)
+                if (topTime != value)
                 {
                     topTime = value;
                     OnPropertyChanged("TopTime");
@@ -65,13 +65,29 @@ namespace ChessClock.Model
             StartTimer();
         }
 
+        public bool GameIsPaused
+        {
+            get
+            {
+                if(State == ClockState.PausedByTop || State == ClockState.PausedByBot)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
         public Clock()
         {
         }
 
         public void TogglePause()
         {
-            switch(State)
+            switch (State)
             {
                 case ClockState.BotTimerIsOn:
                     State = ClockState.PausedByBot;

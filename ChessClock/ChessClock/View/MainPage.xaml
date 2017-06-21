@@ -38,13 +38,17 @@
             Grid.Row="0" 
             VerticalOptions="Fill">
         </Button>
-        <Button 
-            Text="PAUSE" 
-            Command="{Binding PushPauseCommand}"
+        <Image 
+            x:Name="pauseImg"
             Grid.Row="1" 
-            VerticalOptions="Fill" 
-            HorizontalOptions="Center">
-        </Button>
+            Source="pause_btn.png">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding PushPauseCommand}"
+                    NumberOfTapsRequired="1"
+                    Tapped="OnPauseTapped"/>
+            </Image.GestureRecognizers>
+        </Image>
         <Button 
             x:Name="BotButton"
             Style="{StaticResource BotTimeButtonStyle}"

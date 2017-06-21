@@ -10,10 +10,24 @@ namespace ChessClock
 {
     public partial class MainPage : ContentPage
     {
+        private ClockViewModel clockViewModel = new ClockViewModel();
+
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new ClockViewModel();
+            this.BindingContext = clockViewModel;
+        }
+
+        private void OnPauseTapped(object sender, EventArgs e)
+        {
+            if(clockViewModel.GameIsPaused)
+            {
+                pauseImg.Source = "play_btn.png";
+            }
+            else
+            {
+                pauseImg.Source = "pause_btn.png";
+            }
         }
     }
 }
